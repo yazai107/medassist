@@ -1,20 +1,23 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+import { ThemeProvider, useThemeContext } from './src/context/ThemeContext';
+import AppNavigator from './src/navigation/AppNavigator';
 
-export default function App() {
+function Main() {
+  const { isDark, theme } = useThemeContext();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={theme}>
+      <AppNavigator />
+      <StatusBar style={isDark ? 'light' : 'dark'} />
+    </PaperProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <ThemeProvider>
+      <Main />
+    </ThemeProvider>
+  );
+}
