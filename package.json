@@ -13,7 +13,7 @@
     "@react-native-async-storage/async-storage": "2.1.2",
     "@react-navigation/native": "^7.1.14",
     "@react-navigation/stack": "^7.4.2",
-    "expo": "53.0.18",
+    "expo": "53.0.19",
     "expo-camera": "~16.1.10",
     "expo-mlkit-ocr": "^2.0.1",
     "expo-notifications": "~0.31.4",

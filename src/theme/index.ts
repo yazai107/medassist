@@ -9,6 +9,9 @@ export const CustomLightTheme = {
     background: '#f5f5f5',
     surface: '#fff',
     text: '#222',
+    onBackground: '#222',
+    onSurface: '#222',
+    onPrimary: '#fff',
   },
 };
 
@@ -21,5 +24,8 @@ export const CustomDarkTheme = {
     background: '#181a20',
     surface: '#23262f',
     text: '#fff',
+    onBackground: '#fff',
+    onSurface: '#fff',
+    onPrimary: '#181a20',
   },
 }; 
