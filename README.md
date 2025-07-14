@@ -39,17 +39,6 @@ npx eas build -p android --profile preview
 
 O APK será gerado na nuvem e o link aparecerá no terminal.
 
-## Publicação no GitHub
-
-1. Crie um repositório e faça push do projeto:
-```sh
-git init
-git remote add origin <URL_DO_SEU_REPO>
-git add .
-git commit -m "MedAssist v1"
-git push -u origin master
-```
-
 ## Dependências principais
 - React Native (Expo)
 - react-native-paper
