@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, useTheme } from 'react-native-paper';
 
 // import { Camera, CameraType } from 'expo-camera';
 // import * as MLKitOcr from 'expo-mlkit-ocr';
@@ -17,7 +17,7 @@ export default function OcrScreen() {
   // const [name, setName] = useState('');
   // const [time, setTime] = useState('');
   const navigation = useNavigation();
-  // const { colors } = useTheme();
+  const { colors } = useTheme();
 
   // React.useEffect(() => { ... }, []);
   // const handleCapture = async () => { ... };
