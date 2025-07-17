@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Animated, Pressable, Alert } from 'react-native';
+import { View, StyleSheet, Animated, Pressable, ScrollView } from 'react-native';
 import { Text, useTheme, TextInput, Button, Snackbar } from 'react-native-paper';
 import ThemeSlider from '../components/ThemeSlider';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -65,29 +65,33 @@ export default function SettingsScreen() {
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}> 
       <View style={styles.card}>
-        <Text variant="titleLarge" style={{ marginBottom: 16, textAlign: 'center' }}>Configurações</Text>
-        <AnimatedButton>
-          <ThemeSlider />
-        </AnimatedButton>
-        <Text style={{ marginTop: 32, color: colors.onSurface, textAlign: 'center' }}>MedAssist v1.0</Text>
-        <Text style={{ color: colors.onSurface, textAlign: 'center', marginBottom: 16 }}>Desenvolvido por Gabriel Minervini</Text>
-        <Text style={{ color: colors.primary, fontWeight: 'bold', marginBottom: 4, marginTop: 16 }}>HuggingFace API Key</Text>
-        <TextInput
-          value={apiKey}
-          onChangeText={setApiKey}
-          placeholder="Cole sua HuggingFace API Key aqui"
-          secureTextEntry
-          style={{ marginBottom: 8, backgroundColor: colors.surface }}
-          mode="outlined"
-          outlineColor={colors.primary}
-          activeOutlineColor={colors.primary}
-        />
-        <Button mode="contained" onPress={handleSaveKey} loading={loading} disabled={loading || !apiKey.trim() || apiKey.trim() === savedKey}>
-          Salvar API Key
-        </Button>
-        <Text style={{ color: colors.onSurface, fontSize: 12, marginTop: 8, textAlign: 'center' }}>
-          Sua chave é salva apenas localmente e usada para acessar a IA do diagnóstico e do chatbot.
-        </Text>
+        <ScrollView contentContainerStyle={{ alignItems: 'center' }} showsVerticalScrollIndicator={false}>
+          <Text variant="titleLarge" style={{ marginBottom: 16, textAlign: 'center' }}>Configurações</Text>
+          <AnimatedButton>
+            <ThemeSlider />
+          </AnimatedButton>
+          <Text style={{ marginTop: 32, color: colors.onSurface, textAlign: 'center' }}>MedAssist v1.0</Text>
+          <Text style={{ color: colors.onSurface, textAlign: 'center', marginBottom: 16 }}>Desenvolvido por Gabriel Minervini</Text>
+          <View style={styles.apiKeySection}>
+            <Text style={{ color: colors.primary, fontWeight: 'bold', marginBottom: 4, marginTop: 8, textAlign: 'center' }}>HuggingFace API Key</Text>
+            <TextInput
+              value={apiKey}
+              onChangeText={setApiKey}
+              placeholder="Cole sua HuggingFace API Key aqui"
+              secureTextEntry
+              style={{ marginBottom: 8, backgroundColor: colors.surface, minWidth: 220, maxWidth: 280, height: 44, alignSelf: 'center' }}
+              mode="outlined"
+              outlineColor={colors.primary}
+              activeOutlineColor={colors.primary}
+            />
+            <Button mode="contained" onPress={handleSaveKey} loading={loading} disabled={loading || !apiKey.trim() || apiKey.trim() === savedKey} style={{ alignSelf: 'center', marginBottom: 4 }}>
+              Salvar API Key
+            </Button>
+            <Text style={{ color: colors.onSurface, fontSize: 12, marginTop: 4, textAlign: 'center', marginBottom: 0 }}>
+              Sua chave é salva apenas localmente e usada para acessar a IA do diagnóstico e do chatbot.
+            </Text>
+          </View>
+        </ScrollView>
         <Snackbar
           visible={snackbarVisible}
           onDismiss={() => setSnackbarVisible(false)}
@@ -112,7 +116,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     maxWidth: 340,
-    padding: 32,
+    padding: 24,
     borderRadius: 24,
     elevation: 4,
     backgroundColor: '#fff',
@@ -120,5 +124,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.10,
     shadowRadius: 8,
     alignItems: 'center',
+    maxHeight: 540,
+  },
+  apiKeySection: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 8,
+    marginBottom: 8,
+    padding: 8,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 12,
   },
 }); 

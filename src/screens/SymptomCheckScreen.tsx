@@ -289,7 +289,7 @@ export default function SymptomCheckScreen() {
             style={styles.searchInput}
             left={<TextInput.Icon icon="magnify" />}
           />
-          <View style={{ maxHeight: 260 }}>
+          <ScrollView style={{ maxHeight: 260 }} contentContainerStyle={{ paddingBottom: 8 }}>
             {filteredSymptoms.map(s => (
               <AnimatedButton key={s.key} onPress={() => handleToggle(s.key)} style={{ marginBottom: 2 }}>
                 <Checkbox.Item
@@ -301,7 +301,7 @@ export default function SymptomCheckScreen() {
                 />
               </AnimatedButton>
             ))}
-          </View>
+          </ScrollView>
         </Card>
         {result ? (
           <Card style={[styles.resultCard, { backgroundColor: colors.surface }]} mode="elevated">
