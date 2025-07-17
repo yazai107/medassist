@@ -6,7 +6,7 @@ import { Text } from 'react-native-paper';
 // import * as MLKitOcr from 'expo-mlkit-ocr';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { v4 as uuidv4 } from 'uuid';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 // function AnimatedButton({ onPress, children, style, disabled }: any) { ... }
 
@@ -16,7 +16,7 @@ export default function OcrScreen() {
   // const [ocrText, setOcrText] = useState('');
   // const [name, setName] = useState('');
   // const [time, setTime] = useState('');
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
   // const { colors } = useTheme();
 
   // React.useEffect(() => { ... }, []);

@@ -79,10 +79,12 @@ export default function SettingsScreen() {
               onChangeText={setApiKey}
               placeholder="Cole sua HuggingFace API Key aqui"
               secureTextEntry
-              style={{ marginBottom: 8, backgroundColor: colors.surface, minWidth: 220, maxWidth: 280, height: 44, alignSelf: 'center' }}
+              style={{ marginBottom: 8, backgroundColor: (colors as any).inputBackground, minWidth: 220, maxWidth: 280, height: 44, alignSelf: 'center', color: (colors as any).inputText }}
               mode="outlined"
               outlineColor={colors.primary}
               activeOutlineColor={colors.primary}
+              placeholderTextColor={colors.onSurface + '99'}
+              theme={{ colors: { background: (colors as any).inputBackground, text: (colors as any).inputText, primary: colors.primary, placeholder: colors.onSurface + '99' } }}
             />
             <Button mode="contained" onPress={handleSaveKey} loading={loading} disabled={loading || !apiKey.trim() || apiKey.trim() === savedKey} style={{ alignSelf: 'center', marginBottom: 4 }}>
               Salvar API Key
