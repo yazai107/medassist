@@ -4,7 +4,7 @@ import { Text, useTheme } from 'react-native-paper';
 
 // import { Camera, CameraType } from 'expo-camera';
 // import * as MLKitOcr from 'expo-mlkit-ocr';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { v4 as uuidv4 } from 'uuid';
 import { useNavigation } from '@react-navigation/native';
 
@@ -18,6 +18,10 @@ export default function OcrScreen() {
   // const [time, setTime] = useState('');
   const navigation = useNavigation();
   const { colors } = useTheme();
+  // Example usage for crash test:
+  React.useEffect(() => {
+    AsyncStorage.getItem('test-key');
+  }, []);
 
   // React.useEffect(() => { ... }, []);
   // const handleCapture = async () => { ... };
