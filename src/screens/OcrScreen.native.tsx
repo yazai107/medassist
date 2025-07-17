@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
-
-// import { Camera, CameraType } from 'expo-camera';
+import { Camera } from 'expo-camera';
 // import * as MLKitOcr from 'expo-mlkit-ocr';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import { v4 as uuidv4 } from 'uuid';
@@ -18,19 +17,19 @@ export default function OcrScreen() {
   // const [time, setTime] = useState('');
   const navigation = useNavigation();
   const { colors } = useTheme();
-  // Example usage for crash test:
   React.useEffect(() => {
     AsyncStorage.getItem('test-key');
   }, []);
 
-  // React.useEffect(() => { ... }, []);
-  // const handleCapture = async () => { ... };
-  // const handleSave = async () => { ... };
-
+  // Minimal Camera render for crash test
   return (
     <View style={styles.container}>
       <Text variant="titleLarge">Função de OCR e câmera desativada para teste</Text>
       <Text>Todos os módulos nativos estão comentados para rodar no Expo Go/Web.</Text>
+      <View style={{ width: 200, height: 120, marginTop: 24, borderRadius: 12, overflow: 'hidden' }}>
+        {/* @ts-ignore */}
+        <Camera style={{ flex: 1 }} type={Camera.Constants.Type.back} />
+      </View>
     </View>
   );
 }
